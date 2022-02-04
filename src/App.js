@@ -1,6 +1,9 @@
-import Expenses from "./components/Expenses";
+import React from 'react';
 
-function App() {
+import NewExpense from "./components/NewExpense/NewExpense";
+import Expenses from "./components/Expenses/Expenses";
+
+const App = () => {
   const expenses = [
     { id: 'e1', title: 'Car Insurance1', amount: 221.31, date: new Date(2021, 3, 10) },
     { id: 'e2', title: 'Car Insurance2', amount: 11.31, date: new Date(2021, 3, 15) },
@@ -9,9 +12,16 @@ function App() {
     { id: 'e5', title: 'Car Insurance5', amount: 31.3344, date: new Date(2021, 3, 21) },
   ];
 
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense />
       <Expenses items={expenses} />
     </div>
   );
