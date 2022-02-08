@@ -17,8 +17,6 @@ const Dummy_expenses = [
 const App = () => {
 
   const [expenses, setExpenses] = useState(Dummy_expenses);
-  const [txtBtn, setTxtBtn] = useState("add");
-  const [addExpense, setAddExpense] = useState(false);
 
   const addExpenseHandler = expense => {
     setExpenses((prevExpenses) => {
@@ -27,23 +25,17 @@ const App = () => {
   }
 
   const exportExpense = () => {
-    return addExpense === false ? <></> :
-      <NewExpense onAddExpense={addExpenseHandler} />
+    return <NewExpense onAddExpense={addExpenseHandler} />
   }
-
-  const txtChangehandler = () => {
-    return txtBtn === "add" ? setTxtBtn("cancle") : setTxtBtn("add");
-  }
-
 
   return (
     <div className='App'>
       {exportExpense()}
       <Expenses items={expenses} />
-      <button className='btnAdd' onClick={() => {
+      {/* <button className='btnAdd' onClick={() => {
         setAddExpense(!addExpense);
         txtChangehandler();
-      }}>{txtBtn}</button>
+      }}>{txtBtn}</button> */}
     </div>
   );
 }
